@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+        <title></title>
+        <style type="text/css">    
+          *{
+          margin:0;
+          padding:0;
+          box-sizing: border-box;
+          font-family:'poppins',sans-serif;}
+          body{
+          
+          height:30vh;
+          justify-content:bottom;
+          align-items:top;
+          padding: 10px;
+          justify-content: space-between;
+          
+          background:linear-gradient(135deg,#71b7e6,#9b59b6);}
+          .container{
+          max-width:700px;
+          
+          width:40%;
+          background:#fff;
+          padding:25px 30px;
+          border-radius:5px;
+          margin-bottom: 10px;
+          margin-right:10px ;
+          
+         
+          float: left;
+        }
+          .chart{
+          max-width:700px;
+          
+          width:50%;
+          background:#fff;
+          padding:25px 30px;
+          border-radius:5px;
+          clear: left;
+             margin-bottom: 10px;}
+          .containe{
+          max-width:700px;
+          width:50%;
+          
+          background:#fff;
+          padding:25px 30px;
+          border-radius:3px;
+          
+          float:right;
+          
+          margin-bottom: 10px;
+        }
+        .containee{
+          max-width:400px;
+          width:50%;
+          position: relative;
+          background:#fff;
+          padding:25px 30px;
+          border-radius:3px;
+         
+        
+          margin-bottom: 10px;
+        }
+              
+          
+          .container.title{font-size:25px;
+            font-weight:400;
+            position:relative;
+            
+            
+
+          }
+          .containe.titl{font-size:25px;
+            font-weight:400;
+            position:relative;
+            
+            
+
+          }
+          .containee.titl{font-size:25px;
+            font-weight:400;
+            position:relative;}
+         
+          .container form .user-d{
+            
+            
+            justify-content: space-between;
+          }
+          form .user-d .input-box{
+            margin:20px 0 12px 0;
+            width: calc(100%/2 -20px);
+          }
+          .user-d .input-b input{
+            height: 45px;
+            width: 100%;
+            outline: none;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            padding-left: 15px;
+          }
+          form .button input{
+            height:100%;
+            width: 100%;
+            outline: none;
+            color: #fff;
+            font-size: 18px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            background: linear-gradient(135deg,#71b7e6,#9b59b6
+            );
+            align-items: baseline;
+            justify-content:bottom;
+          }
+          </style>
+</head>
+<body>
+  <div class="container">
+    <div class="title">Add Student</div>
+<form action="{% url 'take' %}" method="post">
+     {% csrf_token %} 
+  <div class="user-d">
+    <div class="input-b">
+      <span class="detail">Registration No.</span>
+      <input type="number" id="id" name="fname"><br><br>
+    </div>
+    
+    <div class="input-b">
+      <span class="detail">Name</span>
+    <input type="text" id="name" name="lname"><br><br>
+    </div>
+    <div class="button">
+    <input type="submit" value="Submit">
+  </div>
+  </form>
+  </div>
+</div>
+<div class="containe">
+  <div class="titl">Take Attendence</div>
+  <form action="{% url 'takeim' %}" method="post">
+    {% csrf_token %} 
+    <div class="button">
+    <input type="submit" value="Mark Attendence">
+  </div>
+
+</form>
+</div>
+</div>
+<div class="chart">
+  {{graph|safe}}
+</div>
+
+<div class="containee">
+  <div class="titlee">Export Attendence to Excel File</div>
+  <form action="{% url 'takee' %}" method="post">
+    {% csrf_token %} 
+    <div class="button">
+    <input type="submit" value="Export">
+  </div>
+</form>
+</div>
+</div>
+</body>
+</html>
